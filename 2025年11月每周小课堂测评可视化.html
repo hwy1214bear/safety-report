@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025年11月环境健康安全知识"每周小课堂"测评情况可视化报告</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+        .stat-card {
+            transition: all 0.3s ease;
+        }
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        }
+        .dark .stat-card:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <!-- 主题切换按钮 -->
+    <button id="themeToggle" class="fixed top-6 right-6 z-50 p-3 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300">
+        <svg class="w-6 h-6 text-gray-800 dark:text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path class="dark:hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            <path class="hidden dark:block" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+    </button>
+
+    <!-- 页面头部 -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="text-center mb-12 animate-in">
+            <div class="inline-block px-4 py-1.5 bg-blue-100 dark:bg-blue-900/30 rounded-full text-blue-600 dark:text-blue-400 text-sm font-medium mb-4">
+                2025年11月测评情况报告
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+                环境健康安全知识"每周小课堂"
+            </h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400">
+                成都市兴蓉再生能源有限公司 · 测评数据可视化分析
+            </p>
+        </div>
+
+        <!-- 关键指标卡片 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <div class="stat-card bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl p-6 text-white shadow-lg">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-blue-100 text-sm font-medium">员工应测人次</span>
+                    <svg class="w-8 h-8 text-blue-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                </div>
+                <div class="text-3xl font-bold mb-1">3,192</div>
+                <div class="text-blue-100 text-xs">实测: 3,189 人次</div>
+            </div>
+
+            <div class="stat-card bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl p-6 text-white shadow-lg">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-purple-100 text-sm font-medium">相关方应测人次</span>
+                    <svg class="w-8 h-8 text-purple-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                </div>
+                <div class="text-3xl font-bold mb-1">2,228</div>
+                <div class="text-purple-100 text-xs">实测: 2,228 人次</div>
+            </div>
+
+            <div class="stat-card bg-gradient-to-br from-green-500 to-green-600 rounded-2xl p-6 text-white shadow-lg">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-green-100 text-sm font-medium">参与率</span>
+                    <svg class="w-8 h-8 text-green-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <div class="text-3xl font-bold mb-1">99.91%</div>
+                <div class="text-green-100 text-xs">员工参与率</div>
+            </div>
+
+            <div class="stat-card bg-gradient-to-br from-amber-500 to-amber-600 rounded-2xl p-6 text-white shadow-lg">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-amber-100 text-sm font-medium">合格率</span>
+                    <svg class="w-8 h-8 text-amber-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                    </svg>
+                </div>
+                <div class="text-3xl font-bold mb-1">100%</div>
+                <div class="text-amber-100 text-xs">全员合格</div>
+            </div>
+        </div>
+
+        <!-- 图表区域 -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            <!-- 各部门平均分排名 -->
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 transition-colors duration-300">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
+                    <span class="w-1 h-6 bg-blue-500 rounded-full mr-3"></span>
+                    各部门测评平均分 TOP 10
+                </h3>
+                <div id="topScoresChart" class="h-96"></div>
+            </div>
+
+            <!-- 测评参与情况 -->
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 transition-colors duration-300">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
+                    <span class="w-1 h-6 bg-purple-500 rounded-full mr-3"></span>
+                    测评参与情况分布
+                </h3>
+                <div id="participationChart" class="h-96"></div>
+            </div>
+        </div>
+
+        <!-- 员工测评详细数据 -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 mb-8 transition-colors duration-300">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
+                <span class="w-1 h-6 bg-green-500 rounded-full mr-3"></span>
+                各部门员工测评数据统计
+            </h3>
+            <div id="departmentChart" class="h-[600px]"></div>
+        </div>
+
+        <!-- 相关方测评数据 -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 mb-8 transition-colors duration-300">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
+                <span class="w-1 h-6 bg-orange-500 rounded-full mr-3"></span>
+                常驻相关方测评数据统计
+            </h3>
+            <div id="contractorChart" class="h-96"></div>
+        </div>
+
+        <!-- 数据表格 -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 transition-colors duration-300">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
+                <span class="w-1 h-6 bg-red-500 rounded-full mr-3"></span>
+                详细数据表格
+            </h3>
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                    <thead class="bg-gray-100 dark:bg-gray-700">
+                        <tr>
+                            <th class="px-4 py-3 text-left text-gray-700 dark:text-gray-300 font-semibold">序号</th>
+                            <th class="px-4 py-3 text-left text-gray-700 dark:text-gray-300 font-semibold">部门/单位</th>
+                            <th class="px-4 py-3 text-center text-gray-700 dark:text-gray-300 font-semibold">应测人次</th>
+                            <th class="px-4 py-3 text-center text-gray-700 dark:text-gray-300 font-semibold">实测人次</th>
+                            <th class="px-4 py-3 text-center text-gray-700 dark:text-gray-300 font-semibold">平均分</th>
+                            <th class="px-4 py-3 text-center text-gray-700 dark:text-gray-300 font-semibold">参与率</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dataTableBody" class="divide-y divide-gray-200 dark:divide-gray-700">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 主题切换
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        
+        // 检查系统主题偏好
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            html.classList.add('dark');
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            updateCharts();
+        });
+
+        // 数据
+        const departmentData = [
+            { name: '市场经营部', should: 52, actual: 52, score: 99.62 },
+            { name: '党群工作部', should: 34, actual: 33, score: 98.79 },
+            { name: '纪检工作部', should: 12, actual: 12, score: 97.50 },
+            { name: '人力资源部', should: 40, actual: 40, score: 98.75 },
+            { name: '内部审计部', should: 20, actual: 20, score: 97.45 },
+            { name: '计划财务部', should: 48, actual: 48, score: 97.08 },
+            { name: '综合管理部', should: 66, actual: 66, score: 99.08 },
+            { name: '质量安全部', should: 39, actual: 39, score: 98.25 },
+            { name: '工程管理部', should: 140, actual: 140, score: 95.64 },
+            { name: '生产管理部', should: 56, actual: 56, score: 98.96 },
+            { name: '技术管理部', should: 92, actual: 90, score: 98.23 },
+            { name: '法务合约部', should: 64, actual: 64, score: 99.39 },
+            { name: '物资设备中心', should: 88, actual: 88, score: 98.41 },
+            { name: '渗滤液厂', should: 332, actual: 332, score: 98.33 },
+            { name: '万兴一厂', should: 424, actual: 424, score: 96.56 },
+            { name: '万兴二厂', should: 420, actual: 420, score: 97.38 },
+            { name: '万兴三厂', should: 240, actual: 240, score: 97.13 },
+            { name: '隆丰厂', should: 337, actual: 337, score: 99.08 },
+            { name: '医废厂', should: 116, actual: 116, score: 97.77 },
+            { name: '青白江炉渣', should: 32, actual: 32, score: 100.00 },
+            { name: '彭州炉渣', should: 24, actual: 24, score: 97.92 },
+            { name: '西安餐厨', should: 152, actual: 152, score: 95.45 },
+            { name: '邛崃餐厨', should: 136, actual: 136, score: 98.07 },
+            { name: '彭州餐厨', should: 120, actual: 120, score: 98.50 },
+            { name: '餐厨三期', should: 108, actual: 108, score: 97.49 }
+        ];
+
+        const contractorData = [
+            { name: '综合管理部', should: 236, actual: 236, score: 99.74 },
+            { name: '渗滤液厂', should: 408, actual: 408, score: 97.22 },
+            { name: '万兴一厂', should: 365, actual: 365, score: 97.83 },
+            { name: '万兴二厂', should: 358, actual: 358, score: 99.30 },
+            { name: '隆丰厂', should: 328, actual: 328, score: 97.53 },
+            { name: '医废厂', should: 108, actual: 108, score: 95.38 },
+            { name: '青白江炉渣', should: 115, actual: 115, score: 95.33 },
+            { name: '彭州炉渣', should: 128, actual: 128, score: 93.47 },
+            { name: '邛崃餐厨', should: 120, actual: 120, score: 96.34 },
+            { name: '彭州餐厨', should: 46, actual: 46, score: 100.00 },
+            { name: '餐厨三期', should: 16, actual: 16, score: 96.25 }
+        ];
+
+        // 获取当前主题颜色
+        function getColors() {
+            const isDark = html.classList.contains('dark');
+            return {
+                text: isDark ? '#e5e7eb' : '#374151',
+                grid: isDark ? '#374151' : '#e5e7eb',
+                bg: isDark ? '#1f2937' : '#ffffff'
+            };
+        }
+
+        // TOP 10 平均分
+        function initTopScoresChart() {
+            const topDepts = [...departmentData].sort((a, b) => b.score - a.score).slice(0, 10);
+            const colors = getColors();
+            const chart = echarts.init(document.getElementById('topScoresChart'));
+            
+            const option = {
+                backgroundColor: 'transparent',
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: { type: 'shadow' }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'value',
+                    min: 95,
+                    max: 100,
+                    axisLabel: { color: colors.text },
+                    axisLine: { lineStyle: { color: colors.grid } },
+                    splitLine: { lineStyle: { color: colors.grid } }
+                },
+                yAxis: {
+                    type: 'category',
+                    data: topDepts.map(d => d.name),
+                    axisLabel: { color: colors.text, fontSize: 11 },
+                    axisLine: { lineStyle: { color: colors.grid } }
+                },
+                series: [{
+                    type: 'bar',
+                    data: topDepts.map(d => d.score),
+                    itemStyle: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+                            { offset: 0, color: '#3b82f6' },
+                            { offset: 1, color: '#60a5fa' }
+                        ]),
+                        borderRadius: [0, 4, 4, 0]
+                    },
+                    label: {
+                        show: true,
+                        position: 'right',
+                        color: colors.text,
+                        fontSize: 11
+                    }
+                }]
+            };
+            
+            chart.setOption(option);
+            return chart;
+        }
+
+        // 参与情况饼图
+        function initParticipationChart() {
+            const colors = getColors();
+            const chart = echarts.init(document.getElementById('participationChart'));
+            
+            const totalShould = 3192 + 2228;
+            const totalActual = 3189 + 2228;
+            
+            const option = {
+                backgroundColor: 'transparent',
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{b}: {c} 人次 ({d}%)'
+                },
+                legend: {
+                    orient: 'vertical',
+                    right: '10%',
+                    top: 'center',
+                    textStyle: { color: colors.text }
+                },
+                series: [{
+                    type: 'pie',
+                    radius: ['40%', '70%'],
+                    center: ['35%', '50%'],
+                    avoidLabelOverlap: true,
+                    data: [
+                        { value: 3189, name: '员工实测', itemStyle: { color: '#3b82f6' } },
+                        { value: 2228, name: '相关方', itemStyle: { color: '#8b5cf6' } },
+                        { value: 3, name: '未参与', itemStyle: { color: '#ef4444' } }
+                    ],
+                    label: {
+                        show: true,
+                        color: colors.text,
+                        formatter: '{b}\n{d}%',
+                        fontSize: 7,
+                        fontWeight: 'bold',
+                        lineHeight: 20,
+                        overflow: 'none',
+                        ellipsis: '...'
+                    },
+                    labelLine: {
+                        show: true,
+                        length: 15,
+                        length2: 10,
+                        smooth: true
+                    },
+                    emphasis: {
+                        itemStyle: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }]
+            };
+            
+            chart.setOption(option);
+            return chart;
+        }
+
+        // 各部门详细数据
+        function initDepartmentChart() {
+            const colors = getColors();
+            const chart = echarts.init(document.getElementById('departmentChart'));
+            
+            const option = {
+                backgroundColor: 'transparent',
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: { type: 'shadow' }
+                },
+                legend: {
+                    data: ['应测人次', '实测人次', '平均分'],
+                    textStyle: { color: colors.text },
+                    top: 0
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    top: '12%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'category',
+                    data: departmentData.map(d => d.name),
+                    axisLabel: {
+                        color: colors.text,
+                        rotate: 45,
+                        fontSize: 10
+                    },
+                    axisLine: { lineStyle: { color: colors.grid } }
+                },
+                yAxis: [
+                    {
+                        type: 'value',
+                        name: '人次',
+                        axisLabel: { color: colors.text },
+                        axisLine: { lineStyle: { color: colors.grid } },
+                        splitLine: { lineStyle: { color: colors.grid } }
+                    },
+                    {
+                        type: 'value',
+                        name: '平均分',
+                        min: 90,
+                        max: 100,
+                        axisLabel: { color: colors.text },
+                        axisLine: { lineStyle: { color: colors.grid } },
+                        splitLine: { show: false }
+                    }
+                ],
+                series: [
+                    {
+                        name: '应测人次',
+                        type: 'bar',
+                        data: departmentData.map(d => d.should),
+                        itemStyle: { color: '#60a5fa' }
+                    },
+                    {
+                        name: '实测人次',
+                        type: 'bar',
+                        data: departmentData.map(d => d.actual),
+                        itemStyle: { color: '#34d399' }
+                    },
+                    {
+                        name: '平均分',
+                        type: 'line',
+                        yAxisIndex: 1,
+                        data: departmentData.map(d => d.score),
+                        itemStyle: { color: '#f59e0b' },
+                        lineStyle: { width: 2 },
+                        smooth: true
+                    }
+                ]
+            };
+            
+            chart.setOption(option);
+            return chart;
+        }
+
+        // 相关方测评数据
+        function initContractorChart() {
+            const colors = getColors();
+            const chart = echarts.init(document.getElementById('contractorChart'));
+            
+            const option = {
+                backgroundColor: 'transparent',
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: { type: 'shadow' }
+                },
+                legend: {
+                    data: ['应测人次', '平均分'],
+                    textStyle: { color: colors.text }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    top: '12%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'category',
+                    data: contractorData.map(d => d.name),
+                    axisLabel: {
+                        color: colors.text,
+                        rotate: 30,
+                        fontSize: 11
+                    },
+                    axisLine: { lineStyle: { color: colors.grid } }
+                },
+                yAxis: [
+                    {
+                        type: 'value',
+                        name: '人次',
+                        axisLabel: { color: colors.text },
+                        axisLine: { lineStyle: { color: colors.grid } },
+                        splitLine: { lineStyle: { color: colors.grid } }
+                    },
+                    {
+                        type: 'value',
+                        name: '平均分',
+                        min: 90,
+                        max: 100,
+                        axisLabel: { color: colors.text },
+                        axisLine: { lineStyle: { color: colors.grid } },
+                        splitLine: { show: false }
+                    }
+                ],
+                series: [
+                    {
+                        name: '应测人次',
+                        type: 'bar',
+                        data: contractorData.map(d => d.should),
+                        itemStyle: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                { offset: 0, color: '#f97316' },
+                                { offset: 1, color: '#fb923c' }
+                            ])
+                        }
+                    },
+                    {
+                        name: '平均分',
+                        type: 'line',
+                        yAxisIndex: 1,
+                        data: contractorData.map(d => d.score),
+                        itemStyle: { color: '#8b5cf6' },
+                        lineStyle: { width: 3 },
+                        smooth: true
+                    }
+                ]
+            };
+            
+            chart.setOption(option);
+            return chart;
+        }
+
+        // 填充数据表格
+        function fillDataTable() {
+            const tbody = document.getElementById('dataTableBody');
+            departmentData.forEach((dept, index) => {
+                const rate = ((dept.actual / dept.should) * 100).toFixed(2);
+                const row = `
+                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+                        <td class="px-4 py-3 text-gray-900 dark:text-gray-300">${index + 1}</td>
+                        <td class="px-4 py-3 text-gray-900 dark:text-gray-300 font-medium">${dept.name}</td>
+                        <td class="px-4 py-3 text-center text-gray-700 dark:text-gray-400">${dept.should}</td>
+                        <td class="px-4 py-3 text-center text-gray-700 dark:text-gray-400">${dept.actual}</td>
+                        <td class="px-4 py-3 text-center font-semibold ${dept.score >= 99 ? 'text-green-600 dark:text-green-400' : dept.score >= 97 ? 'text-blue-600 dark:text-blue-400' : 'text-orange-600 dark:text-orange-400'}">${dept.score}</td>
+                        <td class="px-4 py-3 text-center ${rate >= 100 ? 'text-green-600 dark:text-green-400' : 'text-orange-600 dark:text-orange-400'}">${rate}%</td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
+            });
+        }
+
+        // 初始化所有图表
+        let charts = {};
+        function initCharts() {
+            charts.topScores = initTopScoresChart();
+            charts.participation = initParticipationChart();
+            charts.department = initDepartmentChart();
+            charts.contractor = initContractorChart();
+        }
+
+        // 更新图表主题
+        function updateCharts() {
+            Object.values(charts).forEach(chart => chart.dispose());
+            initCharts();
+        }
+
+        // 页面加载时初始化
+        document.addEventListener('DOMContentLoaded', () => {
+            initCharts();
+            fillDataTable();
+            
+            // 响应式处理
+            window.addEventListener('resize', () => {
+                Object.values(charts).forEach(chart => chart.resize());
+            });
+        });
+    </script>
+</body>
+</html>
